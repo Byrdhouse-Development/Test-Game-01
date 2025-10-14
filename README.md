@@ -1,5 +1,5 @@
 # Test-Game-01
-A test game using the template app: https://deynum.itch.io/game-dev-the-game
+A test game using the template app: https://deynum.itch.io/game-dev-the-game. I am choosing to develop with Godot for this project to familiarize myself with the game engine
 
 The initial iteration of this project is to make a robot shooter including a couple artistic requirements.
 ![image](images/Iteration1.PNG)
