@@ -11,7 +11,8 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Bullet Hell|
 |SHMUP (Shoot-Em-Up)|
 
-|Unlocked Mechanics|
-|------------------|
-|Aiming|
-|Score Tracking|
+|Unlocked Mechanics|Cost|
+|------------------|----|
+|Aiming|10|
+|Score Tracking|5|
+|Wave System|10|
