@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var speed : float = 200.0
-@export var ownerGroup : String
-@onready var timer : Timer = $DestroyTimer
+@export var speed : float = 200.0 # Controls the speed of the bullet
+@export var ownerGroup : String # Stores the character who spawned this bullet
+@onready var timer : Timer = $DestroyTimer # A timer to destroy the bullet 
 
-var moveDir : Vector2
+var moveDir : Vector2 # A Vector that is used to store the direction of the bullet
 
 func _process(delta: float) -> void:
 	translate(moveDir * speed * delta)
@@ -14,4 +14,4 @@ func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 
 func _on_destroy_timer_timeout() -> void:
-	queue_free()
+	queue_free() # Destroys the bullet when the timer ends

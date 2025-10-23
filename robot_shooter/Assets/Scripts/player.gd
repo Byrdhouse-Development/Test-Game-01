@@ -1,16 +1,14 @@
 extends CharacterBody2D
 
-# @firerate : Determines how fast the player may shoot. In seconds (.1 = 10 times per second)
-# @lastShot : used to maintain steady shotspeed
-@export var firerate : float = 0.1
-var lastShot : float
+
+@export var firerate : float = 0.1 # Determines how fast the player may shoot. In seconds (.1 = 10 times per second)
+@export var currency : int = 0 # "Score" mechanic to track points to spend on upgrades
+var lastShot : float # Used to maintain steady firerate
+
  
-# @sprite : reference to the sprite of the player
-# @bulletOrigin : location the bullet will spawn when fired
-# @bulletScene : the bullet scene object to be created 
-@onready var sprite : Sprite2D = $Player
-@onready var bulletOrigin = $bulletOrigin
-var bulletScene : PackedScene = preload("res://Assets/Scenes/Objects/bullet.tscn")
+@onready var sprite : Sprite2D = $Player # Reference to the sprite of the player
+@onready var bulletOrigin = $bulletOrigin # Location the bullet will spawn when fired
+var bulletScene : PackedScene = preload("res://Assets/Scenes/Objects/bullet.tscn") # The bullet scene object to be created 
 
 # Mouse tracking variables
 var mousePos : Vector2
@@ -34,9 +32,9 @@ func _fire() -> void:
 	lastShot = Time.get_unix_time_from_system()
 	
 	var bullet = bulletScene.instantiate()
-	get_tree().root.add_child(bullet)
+	get_tree().root.add_child(bullet) # This adds the bullet to the current scene to be spawned
 	
-	bullet.global_position = bulletOrigin.global_position
-	bullet.moveDir = mouseDir
+	bullet.global_position = bulletOrigin.global_position # Puts the bullet at the location of the origin
+	bullet.moveDir = mouseDir 
 	
 	
