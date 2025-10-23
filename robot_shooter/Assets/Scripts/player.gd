@@ -32,6 +32,7 @@ func _fire() -> void:
 	lastShot = Time.get_unix_time_from_system()
 	
 	var bullet = bulletScene.instantiate()
+	bullet.ownerGroup = "Player"
 	get_tree().root.add_child(bullet) # This adds the bullet to the current scene to be spawned
 	
 	bullet.global_position = bulletOrigin.global_position # Puts the bullet at the location of the origin
