@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx7bkr0koklhv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fekvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owcbx"]
+size = Vector2(10, 10)
+
+[node name="Bullet" type="Area2D"]
+
+[node name="Bullet" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("PlaceholderTexture2D_fekvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_owcbx")
+
+[node name="DestroyTimer" type="Timer" parent="."]
