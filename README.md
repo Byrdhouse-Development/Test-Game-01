@@ -27,7 +27,7 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Maybe I can turn the tower defense into some kind of idle game.|AmethystWyrm|10/21/25|
 |Maybe all the wizards accidentally froze themselves trying to complete some spell|JaxInTheBox|10/22/25|
 
-##Images of various requirements from the game dev game
+## Images of various requirements from the game dev game
 
 ![image](images/Iteration1.PNG)
 ![image](images/Frozen\%20Lizard.PNG)
