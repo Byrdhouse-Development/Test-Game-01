@@ -18,6 +18,8 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Wave System|10|
 |Bullets|10|
 |Trigger Collisions|10|
+|Health|10|
+|Enemy Sprite Sheet|10|
 
 |Idea|Idea-er|Date|
 |----|-------|----|
@@ -27,8 +29,10 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Maybe I can turn the tower defense into some kind of idle game.|AmethystWyrm|10/21/25|
 |Maybe all the wizards accidentally froze themselves trying to complete some spell|JaxInTheBox|10/22/25|
 |Turn the score tracking into some currency/resource to buy upgrades|AmethystWyrm|10/23/25|
+|Strong consideration the enemies are the enemies|AmethystWyrm|10/23/25|
 
 ## Images of various requirements from the game dev game
-
-![image](images/Iteration1.PNG)
-![image](images/Frozen\%20Lizard.PNG)
+|Images||
+|------|-|
+|![image](images/Iteration1.PNG)|![image](images/FrozenLizard.PNG)|
+|![image](images/MoreCritters.PNG)|
