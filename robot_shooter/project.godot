@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Robot Shooter"
+run/main_scene="uid://c35l2dw1q0wxs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
