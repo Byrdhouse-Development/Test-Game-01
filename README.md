@@ -26,6 +26,7 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Bubblegum gun will definitely cause some slowing affect|AmethystWyrm|10/18/25|
 |Maybe I can turn the tower defense into some kind of idle game.|AmethystWyrm|10/21/25|
 |Maybe all the wizards accidentally froze themselves trying to complete some spell|JaxInTheBox|10/22/25|
+|Turn the score tracking into some currency/resource to buy upgrades|AmethystWyrm|10/23/25|
 
 ## Images of various requirements from the game dev game
 
