@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-
+#Base Gun Mechanics: I plan to move these mechanics over to the bullet origin object 
 @export var firerate : float = 0.1 # Determines how fast the player may shoot. In seconds (.1 = 10 times per second)
+@export var shotSpeed: float = 200 # Determines the speed the bullets move across the screen
 var lastShot : float # Used to maintain steady firerate
 @onready var bulletOrigin = $bulletOrigin # Location the bullet will spawn when fired
 
