@@ -10,6 +10,3 @@ position = Vector2(84, 53)
 
 [node name="Bullet" parent="." instance=ExtResource("2_kyd0i")]
 position = Vector2(24, -19)
-
-[node name="Player2" parent="." instance=ExtResource("1_6satx")]
-position = Vector2(60, 33)
