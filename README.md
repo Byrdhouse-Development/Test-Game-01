@@ -18,16 +18,30 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Wave System|10|
 |Bullets|10|
 |Trigger Collisions|10|
+|Health|10|
+|Enemy Sprite Sheet|10|
+|More Shop Options|5|
+|Gun Mechanics|20|
+|Items Art|10|
+|More Shop Items|5|
+|Player Sprite|10|
+|In-Game Shop|20|
 
 |Idea|Idea-er|Date|
 |----|-------|----|
 |Tower defense game where the enemies are the robots trying to invade the player area.|DrZoidbergPHD|10/14/25|
 |A survivors-like would be fun, like you wake up in a post-apocalyptic land with robots sent to destroy all life, your only companion is a frozen frog that wasn't caught because they are completely frozen. Your goal is to help unfreeze your frog friend and run away from the robots. Maybe an escort task when you eventually free frog. The currency could be fuel leaking from the robots to give to the frog to help defrost them. Bubblegum can cause an AoE that slows enemies down.<br><br>Alternatively, you are a robot pretending to be a frog. You shoot down bugs using the bubblegum gun to pretend like you're eating them. You have to balance your robot needs (oiling up, fixing cogs, ect, ect) while preventing too many bugs from showing up making the others suspicious that you're not eating them. Very fast paced and chaotic.|JaxInTheBox|10/16/25|
 |Bubblegum gun will definitely cause some slowing affect|AmethystWyrm|10/18/25|
-|Maybe I can turn the tower defense into some kind of idle game.|AmethystWyrm|10/21/25|
+|Maybe turn the tower defense into some kind of idle game.|AmethystWyrm|10/21/25|
 |Maybe all the wizards accidentally froze themselves trying to complete some spell|JaxInTheBox|10/22/25|
+|Turn the score tracking into some currency/resource to buy upgrades|AmethystWyrm|10/23/25|
+|Strong consideration the robots are the enemies|AmethystWyrm|10/23/25|
+|The various lizards and amphibians are planned to become various shopkeeps|AmethystWyrm|10/25/25|
+|The "Player" will be the well requirement, that houses all the lizards you are trying to protect|AmethystWyrm|10/25/25|
 
 ## Images of various requirements from the game dev game
-
-![image](images/Iteration1.PNG)
-![image](images/Frozen\%20Lizard.PNG)
+|Images||
+|------|-|
+|![image](images/RequirementsP1.PNG)|![image](images/RequirementsP2.PNG)|
+|![image](images/RequirementsP3.PNG)|![image](images/RequirementsP4.PNG)|
+|![image](images/RequirementsP5.PNG)|
