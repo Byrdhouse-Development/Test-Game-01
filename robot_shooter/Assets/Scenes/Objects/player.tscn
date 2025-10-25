@@ -6,10 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gssdv"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_xv0pg")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_lr37v")
 

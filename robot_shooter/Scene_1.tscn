@@ -6,7 +6,10 @@
 [node name="Node2D" type="Node2D"]
 position = Vector2(84, 53)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_6satx")]
+[node name="Player" parent="." instance=ExtResource("1_6satx")]
 
 [node name="Bullet" parent="." instance=ExtResource("2_kyd0i")]
 position = Vector2(24, -19)
+
+[node name="Player2" parent="." instance=ExtResource("1_6satx")]
+position = Vector2(60, 33)
