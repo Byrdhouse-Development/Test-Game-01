@@ -4,10 +4,11 @@ extends CharacterBody2D
 @export var health : float # Current health for the player
 var prevHealth : float # Used to display health changes
 var dirToPlayer : Vector2 # The path the robots will take towards the player
-@export var speed : float = 20.0 # the speed at which the enemies move
+@export var speed : float = 10.0 # the speed at which the enemies move
 
 @onready var player = $"../Player" # A reference to the player object when the game starts
 @onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the enemy
+
 
 func _ready() -> void:
 	health = maxHealth

@@ -1,15 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://c35l2dw1q0wxs"]
 
 [ext_resource type="PackedScene" uid="uid://b2im1khaop3e8" path="res://Assets/Scenes/Objects/player.tscn" id="1_6satx"]
+[ext_resource type="Script" uid="uid://dbnqc0ne8pc34" path="res://Assets/Scripts/global.gd" id="1_kyd0i"]
 [ext_resource type="PackedScene" uid="uid://boa3ap6lid7hd" path="res://Assets/Scenes/Objects/enemy.tscn" id="3_lp150"]
-[ext_resource type="Script" uid="uid://bauiy2m5dfcat" path="res://Assets/Scripts/enemy.gd" id="4_5ks03"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(576, 324)
+script = ExtResource("1_kyd0i")
 
 [node name="Player" parent="." instance=ExtResource("1_6satx")]
 
-[node name="Enemy" parent="." instance=ExtResource("3_lp150")]
-position = Vector2(128, 17)
-script = ExtResource("4_5ks03")
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("3_lp150")]
+position = Vector2(119, -19)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
