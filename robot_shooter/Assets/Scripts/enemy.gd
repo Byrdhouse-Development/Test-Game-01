@@ -6,7 +6,8 @@ var prevHealth : float # Used to display health changes
 var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
 
-@onready var player = $"../Player" # A reference to the player object when the game starts
+
+@onready var player : Node2D = $"../Player" # A reference to the player object when the game starts
 @onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the enemy
 
 
@@ -38,7 +39,7 @@ func _healthBar() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	#Add code here for accounting for damage to the character the bullet hit
 	print(body)
-	if body.is_in_group("Player"):
+	if body.get_groups()[0] == "Player":
 		body.health -= 1
 		queue_free() # Destroys the bullet after it collides with something
 	
