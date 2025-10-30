@@ -23,6 +23,9 @@ func _on_spawn_timer_timeout() -> void:
 	print("Timer over")
 	waveCount += 1
 	print(_randomPosition())
+	
+	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
+
 	#var enemy = enemyScene.instantiate()
 	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
 	
