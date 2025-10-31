@@ -15,6 +15,10 @@ run/main_scene="uid://c35l2dw1q0wxs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Assets/Scripts/global.gd"
+
 [dotnet]
 
 project/assembly_name="Robot Shooter"
