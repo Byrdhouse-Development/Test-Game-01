@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://boa3ap6lid7hd" path="res://Assets/Scenes/Objects/enemy.tscn" id="3_sd4fk"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(576, 324)
 script = ExtResource("1_hyj2i")
 
 [node name="Player" parent="." instance=ExtResource("2_loyo3")]

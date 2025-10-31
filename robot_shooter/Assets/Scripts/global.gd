@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		wave += 1 # Increase the wave number
 		waveSize *= 2 # Change the nescessary size of the group according to the wave number
 		waveCount = 0 # Reset the wave count for the new wave
-		print("Wave Size: ", waveSize, "/n Wave: ", wave)
 
 func _on_spawn_timer_timeout() -> void:
 	print("Timer over")

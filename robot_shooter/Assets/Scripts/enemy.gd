@@ -30,6 +30,9 @@ func _pathToPlayer() -> void:
 	dirToPlayer = player.global_position - global_position
 
 func _healthBar() -> void:
+	if health == 0:
+		Global.currency += 1
+		queue_free()
 	if 	prevHealth != health:
 		prevHealth = health
 		sprite.modulate.r += 1 - (health / maxHealth) 
