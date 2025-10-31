@@ -1,11 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://c35l2dw1q0wxs"]
 
-[ext_resource type="Script" uid="uid://b8kpgjcvmwo5k" path="res://Assets/Scripts/global.gd" id="1_hyj2i"]
 [ext_resource type="PackedScene" uid="uid://b2im1khaop3e8" path="res://Assets/Scenes/Objects/player.tscn" id="2_loyo3"]
 [ext_resource type="PackedScene" uid="uid://boa3ap6lid7hd" path="res://Assets/Scenes/Objects/enemy.tscn" id="3_sd4fk"]
 
+[sub_resource type="GDScript" id="GDScript_tnknf"]
+script/source = "extends Node2D
+"
+
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_hyj2i")
+script = SubResource("GDScript_tnknf")
 
 [node name="Player" parent="." instance=ExtResource("2_loyo3")]
 
@@ -13,6 +16,9 @@ script = ExtResource("1_hyj2i")
 
 [node name="Enemy" parent="." instance=ExtResource("3_sd4fk")]
 position = Vector2(119, -19)
+maxHealth = null
+health = null
+speed = null
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 10.0

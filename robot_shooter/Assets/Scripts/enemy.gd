@@ -46,3 +46,34 @@ func _on_body_entered(body: Node2D) -> void:
 		body.health -= 1
 		queue_free() # Destroys the bullet after it collides with something
 	
+
+
+
+var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
+@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
+
+func _on_spawn_timer_timeout() -> void:
+	print("Timer over")
+	waveCount += 1
+	print(_randomPosition())
+	
+	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
+
+	#var enemy = enemyScene.instantiate()
+	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
+	
+	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
+	
+
+func _randomPosition() -> Vector2:
+	var x : float = randf() * 1152
+	var y : float = randf() * 648
+	var xNeg : float = randf()
+	var yNeg : float = randf()
+	if xNeg >= .51:
+		x *= -1
+	if yNeg >= .51:
+		y *= -1
+	var pos = Vector2(x,y)
+	return pos
+	
