@@ -54,7 +54,7 @@ var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn")
 
 func _on_spawn_timer_timeout() -> void:
 	print("Timer over")
-	waveCount += 1
+#	waveCount += 1
 	print(_randomPosition())
 	
 	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize

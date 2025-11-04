@@ -1,7 +1,7 @@
 extends Node
 
 @export var nodeScene : PackedScene
-var cachedNodes : Array(Node2D)
+var cachedNodes : Array[Node2D]
 
 func _createNew() -> Node2D :
 	var node = nodeScene.instantiate()
