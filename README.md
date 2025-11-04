@@ -26,6 +26,7 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |More Shop Items|5|
 |Player Sprite|10|
 |In-Game Shop|20|
+|Enemy Shooting|15|
 
 |Idea|Idea-er|Date|
 |----|-------|----|
