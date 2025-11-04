@@ -50,7 +50,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
-@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
+#@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
 
 #func _on_spawn_timer_timeout() -> void:
 #	print("Timer over")
