@@ -7,7 +7,7 @@ var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
 
 
-@onready var player : Node2D = $"../Player" # A reference to the player object when the game starts
+@onready var player : Node2D = get_tree().get_first_node_in_group("Player") # A reference to the player object when the game starts
 @onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the enemy
 
 
@@ -17,17 +17,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	_healthBar() 
+	_pathToPlayer()
 	
 func _physics_process(delta: float) -> void:
-	velocity.x = 0
-	velocity.y = 0
-	_pathToPlayer()
-	velocity.x = dirToPlayer.x * speed
-	velocity.y = dirToPlayer.y * speed
+	velocity = dirToPlayer * speed
 	move_and_slide()
 	
 func _pathToPlayer() -> void:	
-	dirToPlayer = player.global_position - global_position
+	dirToPlayer = global_position.direction_to(player.global_position)
 
 func _healthBar() -> void:
 	if health == 0:
