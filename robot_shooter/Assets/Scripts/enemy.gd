@@ -52,18 +52,18 @@ func _on_body_entered(body: Node2D) -> void:
 var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
 @onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
 
-func _on_spawn_timer_timeout() -> void:
-	print("Timer over")
+#func _on_spawn_timer_timeout() -> void:
+#	print("Timer over")
 #	waveCount += 1
-	print(_randomPosition())
-	
-	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
-
-	#var enemy = enemyScene.instantiate()
-	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
-	
-	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
-	
+#	print(_randomPosition())
+#	
+#	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
+#
+#	#var enemy = enemyScene.instantiate()
+#	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
+#	
+#	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
+#	
 
 func _randomPosition() -> Vector2:
 	var x : float = randf() * 1152
