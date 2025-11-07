@@ -27,6 +27,7 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |Player Sprite|10|
 |In-Game Shop|20|
 |Enemy Shooting|15|
+|Text|10|
 
 |Idea|Idea-er|Date|
 |----|-------|----|
@@ -45,4 +46,5 @@ For a base design of this game I think I will use the "Frozen Frog" as some sort
 |------|-|
 |![image](images/RequirementsP1.PNG)|![image](images/RequirementsP2.PNG)|
 |![image](images/RequirementsP3.PNG)|![image](images/RequirementsP4.PNG)|
-|![image](images/RequirementsP5.PNG)|
+|![image](images/RequirementsP5.PNG)|![image](images/RequirementsP6.PNG)|
+|||
