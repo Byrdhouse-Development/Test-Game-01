@@ -7,7 +7,7 @@ var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
 
 
-@onready var player : Node2D = $"../Player" # A reference to the player object when the game starts
+@onready var player : Node2D = get_tree().get_first_node_in_group("Player") # A reference to the player object when the game starts
 @onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the enemy
 
 
@@ -17,17 +17,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	_healthBar() 
+	_pathToPlayer()
 	
 func _physics_process(delta: float) -> void:
-	velocity.x = 0
-	velocity.y = 0
-	_pathToPlayer()
-	velocity.x = dirToPlayer.x * speed
-	velocity.y = dirToPlayer.y * speed
+	velocity = dirToPlayer * speed
 	move_and_slide()
 	
 func _pathToPlayer() -> void:	
-	dirToPlayer = player.global_position - global_position
+	dirToPlayer = global_position.direction_to(player.global_position)
 
 func _healthBar() -> void:
 	if health == 0:
@@ -50,20 +47,20 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
-@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
+#@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
 
-func _on_spawn_timer_timeout() -> void:
-	print("Timer over")
-	waveCount += 1
-	print(_randomPosition())
-	
-	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
-
-	#var enemy = enemyScene.instantiate()
-	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
-	
-	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
-	
+#func _on_spawn_timer_timeout() -> void:
+#	print("Timer over")
+#	waveCount += 1
+#	print(_randomPosition())
+#	
+#	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
+#
+#	#var enemy = enemyScene.instantiate()
+#	#get_tree().root.add_child(enemy) # This adds the enemy to the current scene to be spawned
+#	
+#	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
+#	
 
 func _randomPosition() -> Vector2:
 	var x : float = randf() * 1152

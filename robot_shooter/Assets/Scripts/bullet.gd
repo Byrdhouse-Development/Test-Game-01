@@ -12,10 +12,14 @@ func _process(delta: float) -> void:
 	translate(moveDir * speed * delta)
 	
 func _on_body_entered(body: Node2D) -> void:
-	#Add code here for accounting for damage to the character the bullet hit
 	if body.get_groups()[0] == "Enemy" && ownerGroup == "Player":
 		body.health -= damage
-		queue_free() # Destroys the bullet after it collides with something
+		visible = false # Hides the bullet between shots to minimize instantiation
+		
 
 func _on_destroy_timer_timeout() -> void:
-	queue_free() # Destroys the bullet when the timer ends
+	visible = false # Hides the bullet between shots to minimize instantiation
+
+func _on_visibility_changed() -> void:
+	if visible == true and timer:
+		timer.start()

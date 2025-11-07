@@ -10,9 +10,9 @@ var lastShot : float # Used to maintain steady firerate
 @export var health : float # Current health for the player
 var prevHealth : float # Used to display health changes
 @export var maxWave : int = 0 # The number of waves that have been completed each round
-@onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the player
 
-var bulletScene : PackedScene = preload("res://Assets/Scenes/Objects/bullet.tscn") # The bullet scene object to be created 
+@onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the player
+@onready var bulletPool = $BulletPool
 
 # Mouse tracking variables
 var mousePos : Vector2
@@ -40,10 +40,9 @@ func _fire() -> void:
 	var mouseDir = bulletOrigin.global_position.direction_to(mousePos)
 	lastShot = Time.get_unix_time_from_system()
 	
-	var bullet = bulletScene.instantiate()
+	var bullet = bulletPool.spawn()
 	bullet.ownerGroup = "Player"
 	bullet.speed = shotSpeed
-	get_tree().root.add_child(bullet) # This adds the bullet to the current scene to be spawned
 	
 	bullet.global_position = bulletOrigin.global_position # Puts the bullet at the location of the origin
 	bullet.moveDir = mouseDir 

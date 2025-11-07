@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2im1khaop3e8"]
+[gd_scene load_steps=6 format=3 uid="uid://b2im1khaop3e8"]
 
 [ext_resource type="Script" uid="uid://8i88rge02o5g" path="res://Assets/Scripts/player.gd" id="1_xv0pg"]
+[ext_resource type="Script" uid="uid://dl7o32stvd1ys" path="res://Assets/Scripts/nodePool.gd" id="2_didu5"]
+[ext_resource type="PackedScene" uid="uid://cx7bkr0koklhv" path="res://Assets/Scenes/Objects/bullet.tscn" id="3_ttj27"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lr37v"]
 
@@ -19,3 +21,7 @@ shape = SubResource("RectangleShape2D_gssdv")
 
 [node name="bulletOrigin" type="Node2D" parent="."]
 position = Vector2(10, 0)
+
+[node name="BulletPool" type="Node" parent="."]
+script = ExtResource("2_didu5")
+nodeScene = ExtResource("3_ttj27")
