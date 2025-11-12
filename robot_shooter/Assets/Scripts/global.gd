@@ -5,9 +5,6 @@ var waveCount : int = 0 # How many enemies have spawned this wave
 @export var wave : int = 0 # The amount of waves that have begun
 @export var currency : int = 0 # "Score" mechanic to track points to spend on upgrades
 
-@onready var timer :Timer = $SpawnTimer
-@onready var enemyPool = $EnemyPool
-
 func _ready() -> void:
 	wave += 1 # Set the initial wave number
 	waveSize *= wave # Set inital wave size based on the wave
@@ -18,20 +15,6 @@ func _process(delta: float) -> void:
 		waveSize *= 2 # Change the nescessary size of the group according to the wave number
 		waveCount = 0 # Reset the wave count for the new wave
 
-
-var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
-@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
-
-func _on_spawn_timer_timeout() -> void:
-	print("Timer over")
-	waveCount += 1
-	print(_randomPosition())
-	
-	# Enemy scene fails to instantiate because it has a reference to the player that fails to initialize
-
-	var enemy = enemyPool.spawn()
-	
-	enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
 	
 
 func _randomPosition() -> Vector2:
