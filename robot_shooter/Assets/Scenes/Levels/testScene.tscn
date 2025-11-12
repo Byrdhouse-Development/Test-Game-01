@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c35l2dw1q0wxs"]
+[gd_scene load_steps=4 format=3 uid="uid://c35l2dw1q0wxs"]
 
 [ext_resource type="Script" uid="uid://b8kpgjcvmwo5k" path="res://Assets/Scripts/global.gd" id="1_loyo3"]
 [ext_resource type="PackedScene" uid="uid://b2im1khaop3e8" path="res://Assets/Scenes/Objects/player.tscn" id="2_loyo3"]
-[ext_resource type="Script" uid="uid://dl7o32stvd1ys" path="res://Assets/Scripts/nodePool.gd" id="3_hyj2i"]
 [ext_resource type="PackedScene" uid="uid://boa3ap6lid7hd" path="res://Assets/Scenes/Objects/enemy.tscn" id="3_sd4fk"]
 
 [node name="Node2D" type="Node2D"]
@@ -17,9 +16,5 @@ position = Vector2(119, -19)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
-
-[node name="EnemyPool" type="Node" parent="."]
-script = ExtResource("3_hyj2i")
-nodeScene = ExtResource("3_sd4fk")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

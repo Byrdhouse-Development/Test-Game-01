@@ -5,11 +5,14 @@ extends CharacterBody2D
 var prevHealth : float # Used to display health changes
 var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
-
+@export var firerate : float = .1 # Determines how fast the bullet may shoot. In seconds (.1 = 10 times per second)
+@export var shotSpeed: float = 150 # Determines the speed the bullets move across the screen
+var lastShot : float # Used to maintain steady firerate
 
 @onready var player : Node2D = get_tree().get_first_node_in_group("Player") # A reference to the player object when the game starts
 @onready var sprite : Sprite2D = $Sprite # Reference to the sprite of the enemy
-
+@onready var bulletPool = $BulletPool
+@onready var bulletOrigin = $BulletOrigin # Location the bullet will spawn when fired
 
 func _ready() -> void:
 	health = maxHealth
@@ -18,6 +21,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_healthBar() 
 	_pathToPlayer()
+	if Time.get_unix_time_from_system() - lastShot > firerate && visible:
+		_fire()
 	
 func _physics_process(delta: float) -> void:
 	velocity = dirToPlayer * speed
@@ -27,9 +32,9 @@ func _pathToPlayer() -> void:
 	dirToPlayer = global_position.direction_to(player.global_position)
 
 func _healthBar() -> void:
-	if health == 0:
+	if health <= 0:
 		Global.currency += 1
-		queue_free()
+		visible = false
 	if 	prevHealth != health:
 		prevHealth = health
 		sprite.modulate.r += 1 - (health / maxHealth) 
@@ -38,7 +43,6 @@ func _healthBar() -> void:
 		
 func _on_body_entered(body: Node2D) -> void:
 	#Add code here for accounting for damage to the character the bullet hit
-	print(body)
 	if body.get_groups()[0] == "Player":
 		body.health -= 1
 		queue_free() # Destroys the bullet after it collides with something
@@ -61,6 +65,16 @@ var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn")
 #	
 #	#enemy.global_position =  _randomPosition()# Puts the new enemy at a random location
 #	
+
+func _fire() -> void:
+	lastShot = Time.get_unix_time_from_system()
+	
+	var bullet = bulletPool.spawn()
+	bullet.ownerGroup = "Enemy"
+	bullet.speed = shotSpeed
+	bullet.global_position = bulletOrigin.global_position # Puts the bullet at the location of the origin
+	bullet.moveDir = dirToPlayer 
+
 
 func _randomPosition() -> Vector2:
 	var x : float = randf() * 1152
