@@ -40,15 +40,6 @@ func _healthBar() -> void:
 		sprite.modulate.r += 1 - (health / maxHealth) 
 		sprite.modulate.g *= (health / maxHealth) * 1.2
 		sprite.modulate.b *= (health / maxHealth) * 1.15
-		
-func _on_body_entered(body: Node2D) -> void:
-	#Add code here for accounting for damage to the character the bullet hit
-	if body.get_groups()[0] == "Player":
-		body.health -= 1
-		queue_free() # Destroys the bullet after it collides with something
-	
-
-
 
 var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
 #@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
@@ -87,4 +78,13 @@ func _randomPosition() -> Vector2:
 		y *= -1
 	var pos = Vector2(x,y)
 	return pos
+	
+
+
+func _on_enemy_collision_body_entered(body: Node2D) -> void:
+	print(body)
+	if body.get_groups()[0] == "Player":
+		print("entered")
+		body.health -= 1
+		queue_free() # Destroys the bullet after it collides with something
 	
