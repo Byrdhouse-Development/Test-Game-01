@@ -5,8 +5,8 @@ extends CharacterBody2D
 var prevHealth : float # Used to display health changes
 var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
-@export var firerate : float = 0.1 # Determines how fast the player may shoot. In seconds (.1 = 10 times per second)
-@export var shotSpeed: float = 200 # Determines the speed the bullets move across the screen
+@export var firerate : float = .1 # Determines how fast the bullet may shoot. In seconds (.1 = 10 times per second)
+@export var shotSpeed: float = 150 # Determines the speed the bullets move across the screen
 var lastShot : float # Used to maintain steady firerate
 
 @onready var player : Node2D = get_tree().get_first_node_in_group("Player") # A reference to the player object when the game starts
@@ -43,7 +43,6 @@ func _healthBar() -> void:
 		
 func _on_body_entered(body: Node2D) -> void:
 	#Add code here for accounting for damage to the character the bullet hit
-	print(body)
 	if body.get_groups()[0] == "Player":
 		body.health -= 1
 		queue_free() # Destroys the bullet after it collides with something

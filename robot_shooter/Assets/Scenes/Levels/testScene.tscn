@@ -6,9 +6,6 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_loyo3")
-waveSize = null
-wave = null
-currency = null
 
 [node name="Player" parent="." instance=ExtResource("2_loyo3")]
 

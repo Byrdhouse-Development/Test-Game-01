@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owcbx"]
 size = Vector2(10, 10)
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_owcbx")
 
 [node name="Bullet" type="Sprite2D" parent="."]
@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_owcbx")
 [node name="DestroyTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

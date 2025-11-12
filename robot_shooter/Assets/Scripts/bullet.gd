@@ -20,5 +20,11 @@ func _on_destroy_timer_timeout() -> void:
 	visible = false # Hides the bullet between shots to minimize instantiation
 
 func _on_visibility_changed() -> void:
-	if visible == true and timer:
+	if visible and timer:
 		timer.start()
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.get_groups()[0] == "Bullet" && visible:
+		visible = false
+		moveDir = Vector2(0,0)
+		global_position = Vector2(1000,1000)
