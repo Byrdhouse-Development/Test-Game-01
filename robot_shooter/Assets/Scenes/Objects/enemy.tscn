@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byic4ylvsajuw" path="res://Assets/Scripts/enemy.gd" id="1_mr68n"]
 [ext_resource type="Script" uid="uid://dl7o32stvd1ys" path="res://Assets/Scripts/nodePool.gd" id="2_jnibb"]
-[ext_resource type="PackedScene" uid="uid://cx7bkr0koklhv" path="res://Assets/Scenes/Objects/bullet.tscn" id="3_tw6b7"]
+[ext_resource type="PackedScene" uid="uid://dik8y7mqk2rt1" path="res://Assets/Scenes/Objects/enemy_bullet.tscn" id="3_jnibb"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xm81f"]
 
@@ -29,6 +29,6 @@ shape = SubResource("CircleShape2D_6satx")
 
 [node name="BulletPool" type="Node" parent="."]
 script = ExtResource("2_jnibb")
-nodeScene = ExtResource("3_tw6b7")
+nodeScene = ExtResource("3_jnibb")
 
 [connection signal="body_entered" from="EnemyCollision" to="." method="_on_enemy_collision_body_entered"]

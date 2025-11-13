@@ -82,9 +82,7 @@ func _randomPosition() -> Vector2:
 
 
 func _on_enemy_collision_body_entered(body: Node2D) -> void:
-	print(body)
 	if body.get_groups()[0] == "Player":
-		print("entered")
 		body.health -= 1
 		queue_free() # Destroys the bullet after it collides with something
 	
