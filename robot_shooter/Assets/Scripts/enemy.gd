@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-@export var maxHealth : float = 10 # Max health for the player
-@export var health : float # Current health for the player
-var prevHealth : float # Used to display health changes
+@export var maxHealth : int = 10 # Max health for the player
+@export var health : int = 10 # Current health for the player
 var dirToPlayer : Vector2 # The path the robots will take towards the player
 @export var speed : float = 10.0 # the speed at which the enemies move
 @export var firerate : float = .1 # Determines how fast the bullet may shoot. In seconds (.1 = 10 times per second)
@@ -14,9 +13,14 @@ var lastShot : float # Used to maintain steady firerate
 @onready var bulletPool = $BulletPool
 @onready var bulletOrigin = $BulletOrigin # Location the bullet will spawn when fired
 
+func takeDamage(damage : int) -> void:
+		health -= damage
+		if health <= 0:
+			Global.currency += 1
+			visible = false
+
 func _ready() -> void:
-	health = maxHealth
-	prevHealth = health
+	pass
 	
 func _process(delta: float) -> void:
 	_healthBar() 
@@ -32,23 +36,11 @@ func _pathToPlayer() -> void:
 	dirToPlayer = global_position.direction_to(player.global_position)
 
 func _healthBar() -> void:
-	if health <= 0:
-		Global.currency += 1
-		visible = false
 	if 	prevHealth != health:
 		prevHealth = health
 		sprite.modulate.r += 1 - (health / maxHealth) 
 		sprite.modulate.g *= (health / maxHealth) * 1.2
 		sprite.modulate.b *= (health / maxHealth) * 1.15
-		
-func _on_body_entered(body: Node2D) -> void:
-	#Add code here for accounting for damage to the character the bullet hit
-	if body.get_groups()[0] == "Player":
-		body.health -= 1
-		queue_free() # Destroys the bullet after it collides with something
-	
-
-
 
 var enemyScene : PackedScene = preload("res://Assets/Scenes/Objects/enemy.tscn") # The enemy scene for spawning new enemies
 #@onready var spawnTimer : Timer = $SpawnTimer # Reference to the timer under the enemy scene
@@ -87,4 +79,11 @@ func _randomPosition() -> Vector2:
 		y *= -1
 	var pos = Vector2(x,y)
 	return pos
+	
+
+
+func _on_enemy_collision_body_entered(body: Node2D) -> void:
+	if body.get_groups()[0] == "Player":
+		body.health -= 1
+		queue_free() # Destroys the bullet after it collides with something
 	

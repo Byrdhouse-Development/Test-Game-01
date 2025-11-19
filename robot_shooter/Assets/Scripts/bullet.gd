@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if (body.get_groups()[0] == "Enemy" && ownerGroup == "Player") || (body.get_groups()[0] == "Player" && ownerGroup == "Enemy"):
-		body.health -= damage
+		body.takeDamage(damage)
 		visible = false # Hides the bullet between shots to minimize instantiation
 
 func _on_destroy_timer_timeout() -> void:

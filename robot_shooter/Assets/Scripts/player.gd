@@ -17,6 +17,9 @@ var prevHealth : float # Used to display health changes
 # Mouse tracking variables
 var mousePos : Vector2
 
+func takeDamage(damage : int) -> void:
+		health -= damage
+
 func _ready() -> void:
 	health = maxHealth
 	prevHealth = health
